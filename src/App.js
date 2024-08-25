@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Banner from './components/Banner';
-import Formulario from './components/Formulario';
-import Rodape from './components/Rodape';
-import Time from './components/Time';
+import Banner from './componentes/Banner';
+import Formulario from './componentes/Formulario';
+import Time from './componentes/Time';
+import Rodape from './componentes/Rodape';
 
-const App = () => {
+function App() {
 
   const times = [
     {
@@ -13,7 +13,7 @@ const App = () => {
       corSecundaria: '#D9F7E9'
     },
     {
-      nome: 'Front-end',
+      nome: 'Front-End',
       corPrimaria: '#82CFFA',
       corSecundaria: '#E8F8FF'
     },
@@ -24,39 +24,47 @@ const App = () => {
     },
     {
       nome: 'Devops',
-      corPrimaria: '#E06869',
+      corPrimaria: '#E06B69',
       corSecundaria: '#FDE7E8'
+    },
+    {
+      nome: 'Ux e Design',
+      corPrimaria: '#DB6EBF',
+      corSecundaria: '#FAE9F5'
     },
     {
       nome: 'Mobile',
       corPrimaria: '#FFBA05',
       corSecundaria: '#FFF5D9'
     },
+    {
+      nome: 'Inovação e gestão',
+      corPrimaria: '#FF8A29',
+      corSecundaria: '#FFEEDF'
+    }
   ]
 
   const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
+    debugger;
     setColaboradores([...colaboradores, colaborador])
   }
 
   return (
     <div className="App">
-      <Banner/>
-      <Formulario times={times.map(time => time.nome)} 
-                  aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      
-      {times.map(time => <Time key={time.nome}
+      <Banner />
+      <Formulario aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} 
+        times={times.map(time => time.nome)} />
+
+      {times.map(time => <Time key={time.nome} 
                                nome={time.nome} 
                                corPrimaria={time.corPrimaria} 
-                               corSecundaria={time.corSecundaria}
+                               corSecundaria={time.corSecundaria} 
                                colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-                               />
-      )}
-
-      <Rodape />
-
+                               />)}
       
+      <Rodape/>
     </div>
   );
 }
