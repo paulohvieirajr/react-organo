@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Site published
 
-Open [https://react-organo-paulohvieirajr.vercel.app/] (https://react-organo-paulohvieirajr.vercel.app/) to view it in your browser.
+Open [https://react-organo-paulohvieirajr.vercel.app](https://react-organo-paulohvieirajr.vercel.app) to view it in your browser.
 
 ## Available Scripts
 
